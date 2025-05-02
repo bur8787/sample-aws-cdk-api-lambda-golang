@@ -1,14 +1,21 @@
-# Welcome to your CDK TypeScript project
+# Sample AWS CDK API Lambda Golang
 
-This is a blank project for CDK development with TypeScript.
+This is a sample AWS CDK project that creates an API Gateway integrated with a Lambda function written in Go. The Lambda function is triggered by HTTP requests sent to the API Gateway.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+The project also adds the subdomain api to a pre-existing hosted zone in Route 53 and associates it with the created API Gateway.
 
-## Useful commands
+## Prerequisites
+- AWS CDK installed
+- AWS CLI configured
+- Node.js installed
+- Go installed
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+## How to deploy
+
+First, specify the domain name that has already been created in Route 53 by setting the `baseDomainName` variable in `bin/sample-api-lambda-golang.ts`.
+
+Then, deploy the API Gateway and Lambda function by running the following command:
+
+```bash
+$ make deploy
+```
